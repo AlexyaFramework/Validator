@@ -4,19 +4,19 @@ namespace Alexya\Validator\Rulers;
 use \Alexya\Validator\Ruler;
 
 /**
- * int ruler.
+ * Integer ruler.
  *
  * Contains validation rules for ints.
  *
  * Validation Rules:
  *
- * |   Rule    |     Parameters     |                     Description                      |
- * |-----------|:------------------:|------------------------------------------------------|
- * | less_than |      int $min      | Checks if `$value` is less than `$min`.              |
- * | more_than |      int $min      | Checks if `$value` is more than `$min`.              |
- * |  between  | int $min, int $max | Checks if `$value` is between than `$min` and `$max`.|
+ * |   Rule    |       Parameters       |                     Description                       |
+ * |-----------|:----------------------:|-------------------------------------------------------|
+ * | less_than |       `int $min`       | Checks if `$value` is less than `$min`.               |
+ * | more_than |       `int $min`       | Checks if `$value` is more than `$min`.               |
+ * |  between  | `int $min`, `int $max` | Checks if `$value` is between than `$min` and `$max`. |
  *
- * All the rules can start with `int::`.
+ * All the rules can start with `Integer::`.
  *
  * Example:
  *

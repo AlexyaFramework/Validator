@@ -20,7 +20,6 @@ namespace Alexya\Validator;
  *
  * The method `getErrors` returns an array with the validation errors.
  *
- *
  * Example:
  *
  *     $field = new Field("test");
