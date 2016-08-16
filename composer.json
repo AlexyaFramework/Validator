@@ -1,6 +1,7 @@
 {
 	"name": "alexya-framework/validator",
 	"type": "framework",
+    "version": "3.0.2",
 	"description": "Alexya's Validator utilities",
 	"keywords": ["php", "framework", "validator", "php7", "alexya"],
 	"license": "GNU",
