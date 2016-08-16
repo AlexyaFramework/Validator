@@ -9,22 +9,21 @@ use \Alexya\Validator\Ruler;
  * Contains validation rules for strings.
  *
  * Validation Rules:
- *
- * |      Rule      |     Parameters      |                        Description                       |
- * |----------------|:-------------------:|----------------------------------------------------------|
- * |    not_empty   |                     | Requires the value to not be empty                       |
- * |   min_length   |       int $i        | Requires the value to be, at least, $i length            |
- * |   max_length   |       int $i        | Requires the value to be less than $i length             |
- * | length_between |  int $min, int max  | Requires the value to length to be between $min and $max |
- * | contains_chars | string/array $chars | Requires the value to contain any of the specified chars |
- * |    matches     |    string $regex    | Requires the value to match $regex                       |
- * |    is_email    |                     | Requires the value to be a valid email                   |
- * |     is_url     |                     | Requires the value to be a valid url                     |
- * |     is_ip      |                     | Requires the value to be a valid IP                      |
- * |     is_mac     |                     | Requires the value to be a valid mac                     |
- * |    is_regex    |                     | Requires the value to be a valid regex                   |
- * |    is_hash     |                     | Requires the value to be a valid hash                    |
- * |    is_json     |                     | Requires the value to be a valid json                    |
+ * |      Rule      |      Parameters        |                          Description                          |
+ * |----------------|:----------------------:|---------------------------------------------------------------|
+ * |    not_empty   |                        | Requires the value to not be empty.                           |
+ * |   min_length   |        `int $i`        | Requires the value to be, at least, `$i` length.              |
+ * |   max_length   |        `int $i`        | Requires the value to be less than `$i` length.               |
+ * | length_between |  `int $min`, `int max` | Requires the value to length to be between `$min` and `$max`. |
+ * | contains_chars | `string/array $chars`  | Requires the value to contain any of the specified chars.     |
+ * |    matches     |    `string $regex`     | Requires the value to match `$regex`.                         |
+ * |    is_email    |                        | Requires the value to be a valid email.                       |
+ * |     is_url     |                        | Requires the value to be a valid url.                         |
+ * |     is_ip      |                        | Requires the value to be a valid IP.                          |
+ * |     is_mac     |                        | Requires the value to be a valid mac.                         |
+ * |    is_regex    |                        | Requires the value to be a valid regex.                       |
+ * |    is_hash     |                        | Requires the value to be a valid hash.                        |
+ * |    is_json     |                        | Requires the value to be a valid json.                        |
  *
  * All the rules can start with `String::`.
  *
