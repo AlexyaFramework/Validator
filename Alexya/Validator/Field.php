@@ -106,7 +106,7 @@ class Field
         $ret = true;
 
         foreach($this->_rules as $rule => $value) {
-            if(!$ruler->containsRule($rule)) {
+            if(!$ruler->exists($rule)) {
                 continue;
             }
 
