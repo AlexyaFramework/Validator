@@ -163,10 +163,12 @@ class Validator
      */
     private function _validate(Field $field) : bool
     {
-        if(!$field->validate($this->_rulers)) {
-            $this->_errors = array_merge($this->_errors, $field->getErrors());
+        foreach($this->_rulers as $ruler) {
+            if(!$field->validate($ruler)) {
+                $this->_errors = array_merge($this->_errors, $field->getErrors());
 
-            return false;
+                return false;
+            }
         }
 
         return true;
