@@ -58,13 +58,32 @@ class Field
     private $_value;
 
     /**
+     * Field name.
+     *
+     * @var string
+     */
+    private $_name = "";
+
+    /**
      * Constructor.
      *
-     * @param mixed $value Field value.
+     * @param string $name  Field name.
+     * @param mixed  $value Field value.
      */
-    public function __construct($value)
+    public function __construct(string $name, $value)
     {
+        $this->_name  = $name;
         $this->_value = $value;
+    }
+
+    /**
+     * Returns field name.
+     *
+     * @return string Field name.
+     */
+    public function getName() : string
+    {
+        return $this->_name;
     }
 
     /**
