@@ -6,7 +6,7 @@ use \Alexya\Validator\Ruler;
 /**
  * Integer ruler.
  *
- * Contains validation rules for ints.
+ * Contains validation rules for integers.
  *
  * Validation Rules:
  *
@@ -20,11 +20,13 @@ use \Alexya\Validator\Ruler;
  *
  * Example:
  *
- *     $ruler = new \Alexya\Validator\Rulers\IntegerRuler();
- *     var_dump($ruler->validate("Integer::less_than", 20, [40]));   // bool(false);
- *     var_dump($ruler->validate("more_than", 30, [4]));             // bool(true);
- *     var_dump($ruler->validate("Integer::between", 40, [4, 400])); // bool(true);
- *
+ * ```php
+ * $ruler = new \Alexya\Validator\Rulers\IntegerRuler();
+ * var_dump($ruler->validate("Integer::less_than", 20, [40]));   // bool(false);
+ * var_dump($ruler->validate("more_than", 30, [4]));             // bool(true);
+ * var_dump($ruler->validate("Integer::between", 40, [4, 400])); // bool(true);
+ * ```
+ * 
  * @author Manulaiko <manulaiko@gmail.com>
  */
 class IntegerRuler extends Ruler

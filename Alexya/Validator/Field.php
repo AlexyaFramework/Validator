@@ -14,7 +14,8 @@ namespace Alexya\Validator;
  *
  * This method returns an instance of this object for chainability.
  *
- * Once you've added all rules, use the method `validate` to validate the field.
+ * Once you've added all rules, use the method `validate` to validate the fi        $validator = $this->_getValidator($name, $password, $email);
+eld.
  * It accepts as parameter the ruler object with the validation rules and returns
  * `true` if the validation succeeded, `false` if not.
  *
@@ -22,15 +23,17 @@ namespace Alexya\Validator;
  *
  * Example:
  *
- *     $field = new Field("test");
- *     $field->addRule("String::not_empty", "The string can't be empty!");
- *           ->addRule("String::min_length", [4], "The string can't be shorter than 4 chars!");
- *           ->addRule("String::max_length", [20], "The string can't be longer than 20 chars!");
- *           ->addRule("String::matches", ["([0-9A-Z]*)"], "The string must have only numbers and letters!");
+ * ```php
+ * $field = new Field("test");
+ * $field->addRule("String::not_empty", "The string can't be empty!");
+ *       ->addRule("String::min_length", [4], "The string can't be shorter than 4 chars!");
+ *       ->addRule("String::max_length", [20], "The string can't be longer than 20 chars!");
+ *       ->addRule("String::matches", ["([0-9A-Z]*)"], "The string must have only numbers and letters!");
  *
- *     if(!$field->validate()) {
- *         echo implode("\n", $field->getErrors());
- *     }
+ * if(!$field->validate()) {
+ *     echo implode("\n", $field->getErrors());
+ * }
+ * ```
  *
  * @author Manulaiko <manulaiko@gmail.com>
  */
@@ -95,7 +98,7 @@ class Field
      * @param string|array $parameters Parameters to send to the ruler (if a string, it will be interpreted as`$message`).
      * @param string       $message    Error message in case the field doesn't satisfy the rule.
      *
-     * @return \Alexya\Validator\Field Chainability object
+     * @return Field Chainability object
      */
     public function addRule(string $rule, $parameters, string $message = "") : Field
     {
@@ -115,9 +118,9 @@ class Field
     /**
      * Performs the validation.
      *
-     * @param \Alexya\Validator\Ruler $ruler Ruler with the validation rules.
+     * @param Ruler $ruler Ruler with the validation rules.
      *
-     * @return bool `true` if the field was sucessfully validated, `false` if not.
+     * @return bool `true` if the field was successfully validated, `false` if not.
      */
     public function validate(Ruler $ruler) : bool
     {

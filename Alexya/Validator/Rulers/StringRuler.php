@@ -29,10 +29,12 @@ use \Alexya\Validator\Ruler;
  *
  * Example:
  *
- *     $ruler = new \Alexya\Validator\Rulers\StringRuler();
- *     var_dump($ruler->validate("String::not_empty", ""));      // bool(false);
- *     var_dump($ruler->validate("min_length", "test", [4]));    // bool(true);
- *     var_dump($ruler->validate("String::is_ip", "127.0.0.1")); // bool(true);
+ * ```php
+ * $ruler = new \Alexya\Validator\Rulers\StringRuler();
+ * var_dump($ruler->validate("String::not_empty", ""));      // bool(false);
+ * var_dump($ruler->validate("min_length", "test", [4]));    // bool(true);
+ * var_dump($ruler->validate("String::is_ip", "127.0.0.1")); // bool(true);
+ * ```
  *
  * @author Manulaiko <manulaiko@gmail.com>
  */
@@ -70,7 +72,7 @@ class StringRuler extends Ruler
             return false;
         }
 
-        return $this->$rule(... $parameters);
+        return $this->$rule($value, ... $parameters);
     }
 
     /////////////////
@@ -147,7 +149,7 @@ class StringRuler extends Ruler
         }
 
         foreach($chars as $c) {
-            $pos = strpos($value, $chars);
+            $pos = strpos($value, $c);
 
             if($pos !== false) {
                 return true;
@@ -226,7 +228,7 @@ class StringRuler extends Ruler
      */
     public function is_hash(string $value) : bool
     {
-        return preg_match("/^([abcdef0-9]*)$/", $this->_value);
+        return preg_match("/^([abcdef0-9]*)$/", $value);
     }
 
     /**
@@ -238,9 +240,9 @@ class StringRuler extends Ruler
      */
     public function is_json(string $value) : bool
     {
-        $json = json_decode($value);
+        json_decode($value);
 
-        return (json_last_error() == JSON_ERROR_NONE);
+        return (json_last_error() === JSON_ERROR_NONE);
     }
     ///////////////
     // End Rules //
