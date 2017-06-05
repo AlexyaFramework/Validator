@@ -11,11 +11,13 @@ namespace Alexya\Validator;
  *
  * Example:
  *
- *     $validator = new \Alexya\Validator\Validator([
- *         new \Alexya\Validator\Rulers\StringRuler(),
- *         new \Alexya\Validator\Rulers\IntegerRuler()
- *     ]);
- *     $validator->addRuler(new \Alexya\Validator\Rulers\GenericRuler());
+ * ```php
+ * $validator = new \Alexya\Validator\Validator([
+ *     new \Alexya\Validator\Rulers\StringRuler(),
+ *     new \Alexya\Validator\Rulers\IntegerRuler()
+ * ]);
+ * $validator->addRuler(new \Alexya\Validator\Rulers\GenericRuler());
+ * ```
  *
  * For adding a field use the method `add` which accepts as parameter the filed name and
  * its value and returns an object of type `\Alexya\Validator\Field`.
@@ -29,29 +31,31 @@ namespace Alexya\Validator;
  *
  * Example:
  *
- *     $validator = new \Alexya\Validator\Validator([);
- *     $validator->addRuler(new \Alexya\Validator\Rulers\GenericRuler());
- *     $validator->addRuler(new \Alexya\Validator\Rulers\StringRuler());
+ * ```php
+ * $validator = new \Alexya\Validator\Validator([);
+ * $validator->addRuler(new \Alexya\Validator\Rulers\GenericRuler());
+ * $validator->addRuler(new \Alexya\Validator\Rulers\StringRuler());
  *
- *     $validator->add("username", "test")
- *               ->addRule("String::required", "Please, enter your username")
- *               ->addRule("String::min_length", [3], "Your username can't be less than 3 chars")
- *               ->addRule("String::max_length", [20], "Your username can't be more than 20 chars")
- *               ->addRule("String::not_contains_chars", ["#$!\\"], "Your password can't contain special chars");
- *     $validator->add("password", "asdf123")
- *               ->addRule("String::required", "Please, enter your password")
- *               ->addRule("String::min_length", [3], "Your password can't be less than 3 chars");
+ * $validator->add("username", "test")
+ *           ->addRule("String::required", "Please, enter your username")
+ *           ->addRule("String::min_length", [3], "Your username can't be less than 3 chars")
+ *           ->addRule("String::max_length", [20], "Your username can't be more than 20 chars")
+ *           ->addRule("String::not_contains_chars", ["#$!\\"], "Your password can't contain special chars");
+ * $validator->add("password", "asdf123")
+ *           ->addRule("String::required", "Please, enter your password")
+ *           ->addRule("String::min_length", [3], "Your password can't be less than 3 chars");
  *
- *     if($validator->validate()) {
- *         echo "All input has been successfully validated"
- *     } else {
- *         $messages = $validator->getErrors();
+ * if($validator->validate()) {
+ *     echo "All input has been successfully validated"
+ * } else {
+ *     $messages = $validator->getErrors();
  *
- *         echo "Couldn't validate inputs!";
- *         foreach($messages as $message) {
- *             echo $message;
- *         }
+ *     echo "Couldn't validate inputs!";
+ *     foreach($messages as $message) {
+ *         echo $message;
  *     }
+ * }
+ * ```
  *
  * @author Manulaiko <manulaiko@gmail.com>
  */
@@ -86,14 +90,16 @@ class Validator
     public function __construct(array $rulers = [])
     {
         $this->_rulers = array_map(function($ruler) {
-            return ($ruler instanceof Ruler); // Assure the array contains Ruler objects
+            if($ruler instanceof Ruler) {
+                return $ruler;
+            }
         }, $rulers);
     }
 
     /**
      * Adds a ruler to the array.
      *
-     * @param \Alexya\Validator\Ruler $ruler Ruler to add.
+     * @param Ruler $ruler Ruler to add.
      */
     public function addRuler(Ruler $ruler)
     {
@@ -103,12 +109,12 @@ class Validator
     /**
      * Adds a field to the array.
      *
-     * If the field already exists it will be overriden.
+     * If the field already exists it will be overridden.
      *
      * @param string $name  Field name.
      * @param string $value Field value.
      *
-     * @return \Alexya\Validator\Field Field object.
+     * @return Field Field object.
      */
     public function add(string $name, string $value) : Field
     {
@@ -134,7 +140,7 @@ class Validator
      *
      * If the `$name` parameter is empty, all fields will be validated.
      *
-     * @param string $name Field name to validate
+     * @param string $name Field name to validate.
      *
      * @return bool `true` if the field(s) where successfully validated, `false` if not.
      */
@@ -157,7 +163,7 @@ class Validator
     /**
      * Performs the actual validation.
      *
-     * @param \Alexya\Validator\Field $field Field to validate.
+     * @param Field $field Field to validate.
      *
      * @return bool `true` if the field was successfully validated, `false` if not.
      */
