@@ -5,6 +5,7 @@ use \Alexya\Validator\Ruler;
 
 /**
  * Integer ruler.
+ * ==============
  *
  * Contains validation rules for integers.
  *
@@ -26,7 +27,7 @@ use \Alexya\Validator\Ruler;
  * var_dump($ruler->validate("more_than", 30, [4]));             // bool(true);
  * var_dump($ruler->validate("Integer::between", 40, [4, 400])); // bool(true);
  * ```
- * 
+ *
  * @author Manulaiko <manulaiko@gmail.com>
  */
 class IntegerRuler extends Ruler

@@ -3,6 +3,7 @@ namespace Alexya\Validator;
 
 /**
  * Ruler class.
+ * ============
  *
  * This class is the base for all rulers.
  *

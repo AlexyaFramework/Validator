@@ -3,6 +3,7 @@ namespace Alexya\Validator;
 
 /**
  * Validator class.
+ * ================
  *
  * This class provides helpers for validating input.
  *
@@ -93,6 +94,8 @@ class Validator
             if($ruler instanceof Ruler) {
                 return $ruler;
             }
+
+            return null;
         }, $rulers);
     }
 
@@ -101,7 +104,7 @@ class Validator
      *
      * @param Ruler $ruler Ruler to add.
      */
-    public function addRuler(Ruler $ruler)
+    public function addRuler(Ruler $ruler) : void
     {
         $this->_rulers[] = $ruler;
     }

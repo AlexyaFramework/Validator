@@ -3,6 +3,7 @@ namespace Alexya\Validator;
 
 /**
  * Field class.
+ * ============
  *
  * The constructor accepts as parameter the field to validate.
  *

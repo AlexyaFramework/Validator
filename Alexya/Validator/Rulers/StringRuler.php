@@ -5,6 +5,7 @@ use \Alexya\Validator\Ruler;
 
 /**
  * String ruler.
+ * =============
  *
  * Contains validation rules for strings.
  *
